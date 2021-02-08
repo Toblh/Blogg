@@ -5,7 +5,7 @@ const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
 const app = express()
 
-mongoose.connect('mongodb://localhost/blog', { 
+mongoose.connect('https://glacial-caverns-41219.herokuapp.com/', { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true
