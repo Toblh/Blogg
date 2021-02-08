@@ -4,8 +4,9 @@ const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
 const app = express()
+const uri = process.env.MONGODB_URI;
 
-mongoose.connect('mongodb+srv://1:1234@cluster0.h7mkj.mongodb.net/Blogg?retryWrites=true&w=majority', { 
+mongoose.connect(uri, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true
