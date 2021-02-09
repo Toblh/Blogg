@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000
 require('dotenv').config()
 
 
-mongoose.connect('process.env.MONGODB_URI' || 'mongodb://localhost/glacial-caverns-41219', { 
+mongoose.connect('mongodb+srv://1:1234@cluster0.h7mkj.mongodb.net/Blogg?retryWrites=true&w=majority', { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true
@@ -27,4 +27,6 @@ app.get('/', async (req, res) => {
 
 app.use('/articles', articleRouter)
 
-app.listen(port)
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost/:' + port)
+}) 
