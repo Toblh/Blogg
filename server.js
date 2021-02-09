@@ -4,9 +4,11 @@ const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
 const app = express()
+const port = process.env.PORT || 3000
+require('dotenv').config()
 
 
-mongoose.connect('mongodb://localhost/blog', { 
+mongoose.connect('process.env.MONGODB_URI' || 'mongodb://localhost/glacial-caverns-41219', { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true
@@ -25,4 +27,4 @@ app.get('/', async (req, res) => {
 
 app.use('/articles', articleRouter)
 
-app.listen(5000)
+app.listen(port)
