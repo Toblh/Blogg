@@ -15,10 +15,11 @@ mongoose.connect('mongodb+srv://1:1234@cluster0.h7mkj.mongodb.net/Blogg?retryWri
 })
 
 app.set('view engine', 'ejs')
+app.engine('ejs', require('ejs').__express);
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 
-app.get('/', async (req, res) => {
+app.get('/', async (_req, res) => {
     const articles = await Article.find().sort({
     createdAt: 'desc' })
     res.render('articles/index', { articles: articles })
